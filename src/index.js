@@ -11,13 +11,6 @@ class Counter extends React.Component {
       }
     })
   }
-  onDecrease = () => {
-    this.setState((oldState) => {
-      return {
-        count: oldState - 1
-      }
-    })
-  }
   UNSAFE_componentWillMount = () => {
     console.log('WILL MOUNT')
   }
@@ -50,7 +43,7 @@ class Counter extends React.Component {
         <div>
           <p>{this.state.count}</p>
           <input onClick={this.onIncrease} type='button' value='Increase'/>
-          <input onClick={this.onDecrease} type='button' value='Decrease'/>
+          <input type='button' value='Decrease'/>
         </div>
     );
   };
@@ -67,10 +60,10 @@ class App extends React.Component {
     })
   }
   render() {
-    content = this.state.showCounter ? <Counter /> : null
+    this.content = this.state.showCounter ? <Counter /> : null
     return (
       <>
-        {content}
+        {this.content}
         <button onClick={this.onToggleCounter}>Toggle counter</button>
       </>
     );
